@@ -1,1 +1,1 @@
-# profit-over-football-ManchesterUtd.github.io
+# profit-over-football-ManUtd.github.io

@@ -1,0 +1,544 @@
+/* Base Reset & Variables */
+:root {
+    /* Prompt: Primary Background Black #0B0B0B */
+    --bg-black: #0B0B0B;
+    --bg-white: #FFFFFF;
+    --bg-off-white: #F5F5F7;
+
+    /* Text Colors */
+    --text-white: #FFFFFF;
+    --text-grey: #D1D1D1;
+    /* Prompt: Light gray #D1D1D1 */
+    --text-black: #111111;
+    --text-dark-grey: #444444;
+
+    /* Prompt: Accent Reds */
+    --accent-red: #B33A2B;
+    --hover-red: #C44332;
+
+    --font-primary: 'Inter', sans-serif;
+
+    --container-width: 1100px;
+    --section-padding: 8rem 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-black);
+    color: var(--text-grey);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+    color: var(--text-white);
+    font-weight: 700;
+}
+
+.text-red {
+    color: var(--accent-red);
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(11, 11, 11, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    color: var(--accent-red);
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-grey);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--text-white);
+}
+
+/* Buttons */
+.btn-pill {
+    display: inline-block;
+    background-color: var(--accent-red);
+    color: var(--text-white);
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s, background 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-pill:hover {
+    background-color: var(--hover-red);
+    transform: translateY(-2px);
+}
+
+.btn-contrast-black {
+    background-color: #0B0B0B !important;
+    color: #FFFFFF !important;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    /* Slightly larger */
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-contrast-black:hover {
+    background-color: #FFFFFF !important;
+    color: #B33A2B !important;
+    transform: translateY(-2px);
+}
+
+.btn-black {
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-black:hover {
+    background-color: #222;
+}
+
+/* Common Section Layout */
+.section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: var(--section-padding);
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: var(--container-width);
+}
+
+.centered {
+    text-align: center;
+}
+
+/* Themes */
+.dark-section {
+    background-color: var(--bg-black);
+    color: var(--text-grey);
+}
+
+.light-section {
+    background-color: var(--bg-white);
+    color: var(--text-dark-grey);
+}
+
+.light-section h2,
+.light-section h3,
+.light-section h4 {
+    color: var(--text-black);
+}
+
+.red-section {
+    background-color: var(--accent-red);
+    color: var(--text-white);
+}
+
+.red-section h2 {
+    color: var(--text-white);
+}
+
+.red-section p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Typography Classes */
+.huge-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.section-intro {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero-title {
+    font-size: 4.5rem;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-grey);
+    margin-bottom: 3.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.6;
+}
+
+.mouse-icon {
+    width: 20px;
+    height: 32px;
+    border: 2px solid var(--text-white);
+    border-radius: 12px;
+    position: relative;
+}
+
+.mouse-icon::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 6px;
+    background-color: var(--text-white);
+    border-radius: 2px;
+    animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, 10px);
+        opacity: 0;
+    }
+}
+
+/* Vertical Timeline */
+.timeline-container {
+    position: relative;
+    padding-left: 3rem;
+    border-left: 2px solid #EEE;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 3rem;
+}
+
+.icon-circle {
+    position: absolute;
+    left: -4rem;
+    /* Adjusted for larger padding */
+    top: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--accent-red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 4px #fff;
+    z-index: 2;
+}
+
+.icon-circle img {
+    width: 16px;
+    height: 16px;
+}
+
+/* The Shift / Text Blocks */
+.text-section .content-wrapper {
+    max-width: 800px;
+}
+
+.highlight-red-text {
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
+.lead-text {
+    font-size: 1.5rem;
+    color: var(--text-dark-grey);
+    margin-bottom: 2rem;
+}
+
+.subsection-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.body-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.callout-box {
+    background-color: #F6E9E7;
+    color: #8B2C22;
+    border-left: 4px solid #B33A2B;
+    padding: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    max-width: 700px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+/* Charts (Re-using previous logic but refined) */
+.charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.chart-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+/* On-Field Impact / Dark Cards */
+.dark-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.dark-card {
+    background: #1A1A1A;
+    /* Darker than bg-black */
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s;
+}
+
+.dark-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.dark-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-big {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-red);
+    display: block;
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.dark-card p {
+    font-size: 0.95rem;
+    color: #999;
+    line-height: 1.5;
+}
+
+/* Soul of the Club (Split) */
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.split-left h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.split-left p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.split-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.text-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.text-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.text-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Path Forward (Light Cards) */
+.light-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.light-card {
+    background: #F9F9F9;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    text-align: left;
+    border: 1px solid #EEE;
+}
+
+.light-card h3 {
+    color: var(--text-black);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.light-card p {
+    color: var(--text-dark-grey);
+}
+
+/* Footer */
+.site-footer {
+    background: var(--bg-black);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+/* Chart Styles/* Chart Container Overrides */
+.chart-area {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.black-bg {
+    background-color: #000;
+}
+
+.red-bg {
+    background-color: var(--accent-red);
+}
+
+/* Responsive Grid */
+@media (max-width: 900px) {
+
+    .charts-grid,
+    .dark-cards-grid,
+    .light-cards-grid,
+    .split-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+/* Soul Section Background Override */
+#fans {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('stadium.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
